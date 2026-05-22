@@ -1,218 +1,219 @@
+
 ---
 
+## README.md (Frontend Only)
+
+```markdown
 # 🛡️ LUMEN - Frontend
 
-> **Human-Centric Cyber Risk Intelligence Platform**
-> A modern, interactive frontend for cybersecurity risk visualization
+> Human-Centric Cyber Risk Intelligence Platform | Frontend Repository
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5\&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3\&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript\&logoColor=black)
-![Responsive](https://img.shields.io/badge/Responsive-Yes-success)
-![Status](https://img.shields.io/badge/status-production_ready-brightgreen)
-![License](https://img.shields.io/badge/license-Academic-blue)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/status-complete-brightgreen)
 
 ---
 
-## 🌐 Live Demo
+## 📖 About This Repository
 
-🚀 **Try the project here:**
-👉 [https://your-username.github.io/lumen-frontend/](https://your-username.github.io/lumen-frontend/)
+This repository contains the **complete frontend** of LUMEN - a web-based cybersecurity analysis platform that helps users upload system logs and automatically detect potential security risks.
 
-> *(Replace with your GitHub Pages link after deployment)*
-
----
-
-## 📸 Preview
-
-### 🏠 Home & Mood Selector
-
-### 📊 Risk Dashboard
-
-### 📂 Log Upload System
+**Built by:** Sadia Tabassum (ID: 2304008)  
+**Course:** Level 2, Term 2 | Dept. of Cyber Security Engineering, UFTB
 
 ---
 
-## 📖 About the Project
+## ✨ Features Implemented
 
-**LUMEN** is a **frontend-driven cybersecurity platform** designed to simplify log analysis through an intuitive and visually engaging interface.
-
-It enables users to:
-
-* Upload system logs
-* Analyze potential risks
-* Visualize insights through dashboards
-* Interact with a mood-based UI system
-
-This project focuses on **usability, accessibility, and interactive design** while simulating real-world cybersecurity workflows.
-
----
-
-## ✨ Core Features
-
-### 🎨 UI & Experience
-
-* 8 Dynamic Mood Themes
-* Smooth animations & transitions
-* Fully responsive (mobile + desktop)
-
-### 🔐 Authentication System
-
-* Login & Registration
-* Role-based access (User/Admin)
-* Password strength validation
-* OTP verification flow
-
-### 📊 Functional Modules
-
-* Drag & Drop Log Upload
-* Risk Analysis Dashboard (Chart.js)
-* Security Command Toolkit
-* Admin Control Panel
-* Premium Support System
+| Feature | Status |
+|---------|--------|
+| Mood Selector (8 themes) | ✅ |
+| Home Page | ✅ |
+| Login Page (with role selection) | ✅ |
+| Registration Page (password strength) | ✅ |
+| Admin Registration Page | ✅ |
+| Forgot Password Page | ✅ |
+| OTP Verification Page | ✅ |
+| Reset Password Page | ✅ |
+| Upload Log Page (drag & drop) | ✅ |
+| Risk Dashboard (charts) | ✅ |
+| Copy-Paste Security Commands | ✅ |
+| Admin Panel | ✅ |
+| Premium Support System | ✅ |
+| Fully Responsive Design | ✅ |
 
 ---
 
-## 🎨 Mood Theme System
+## 🎨 8 Mood Themes
 
-| Theme        | Style         | Use Case           |
-| ------------ | ------------- | ------------------ |
-| Default      | Lavender      | Balanced usage     |
-| Dark         | Black/Navy    | Night / focus mode |
-| Professional | Gray/Navy     | Presentation       |
-| Happy        | Yellow/Orange | Energetic usage    |
-| Calm         | Blue/Teal     | Relaxed browsing   |
-| Energetic    | Red/Orange    | High attention     |
-| White        | Minimal       | Clean UI           |
-| Sad          | Indigo        | Low-light comfort  |
-
----
-
-## 🛠️ Tech Stack
-
-| Category  | Technology          |
-| --------- | ------------------- |
-| Structure | HTML5               |
-| Styling   | CSS3 + Tailwind CSS |
-| Logic     | JavaScript (ES6)    |
-| Charts    | Chart.js            |
-| Icons     | Font Awesome        |
-| Storage   | LocalStorage        |
+| Mood | Color | Emotion |
+|------|-------|---------|
+| Default | Lavender | Soft & Balanced |
+| Happy | Yellow/Orange | Bright & Energetic |
+| Calm | Blue/Teal | Peaceful & Relaxed |
+| Dark | Black/Navy | Sleek & Mysterious |
+| Energetic | Red/Orange | Vibrant & Dynamic |
+| White | White/Silver | Clean & Minimal |
+| Professional | Navy/Gray | Corporate & Formal |
+| Sad | Indigo/Purple | Mellow & Deep |
 
 ---
 
-## ⚙️ Installation & Setup
+## 🚀 How to Run
 
+1. **Clone the repository**
 ```bash
 git clone https://github.com/your-username/lumen-frontend.git
 cd lumen-frontend
 ```
 
-### Run Locally
+2. **Open the project**
+```bash
+# Double-click index.html
+# OR use VS Code Live Server
+```
 
-* Open `index.html`
-  **OR**
-* Use VS Code Live Server
-
----
-
-## 🔐 Demo Access
-
-| Role  | Username | Password    |
-| ----- | -------- | ----------- |
-| User  | user     | password123 |
-| Admin | admin    | admin123    |
-
-**Admin Code:** `LUMEN_ADMIN_2024`
+3. **Start using**
+- Select your mood theme
+- Register or Login
+- Upload a log file
+- View risk dashboard
+- Copy security commands
 
 ---
 
-## 📁 Project Architecture
+## 🔐 Demo Credentials
+
+| Role | Username/Email | Password |
+|------|----------------|----------|
+| **User** | `user@lumen.com` or `user` | `password123` |
+| **Admin** | `admin@lumen.com` or `admin` | `admin123` |
+
+**Admin Registration Code:** `LUMEN_ADMIN_2024`
+
+---
+
+## 📁 Folder Structure
 
 ```
 lumen-frontend/
 │
-├── index.html
+├── index.html              # Home + Mood Selector
 ├── css/
+│   ├── mood-base.css       # Base styles
+│   └── mood-*.css          # 8 theme files
 ├── js/
+│   ├── mood-storage.js     # Save/load mood
+│   ├── mood-selector.js    # Mood logic
+│   └── homepage.js         # Home interactions
 └── pages/
+    ├── login.html + .css + .js
+    ├── register.html + .css + .js
+    ├── admin-register.html + .js
+    ├── forgot-password.html + .css + .js
+    ├── otp-verification.html + .css + .js
+    ├── reset-password.html + .css + .js
+    ├── upload-log.html + .css + .js
+    ├── dashboard.html + .css + .js
+    └── admin.html + .css + .js
 ```
 
 ---
 
-## 🔄 Application Flow
+## 🛠️ Technologies Used
+
+- **HTML5** - Structure
+- **CSS3** - Styling & Animations
+- **JavaScript (ES6)** - Interactivity
+- **Chart.js** - Data visualization
+- **Font Awesome** - Icons
+- **Tailwind CSS** - Utility classes
+- **LocalStorage** - Data persistence
+
+---
+
+## 📱 Pages & Navigation
 
 ```
-Home → Auth → Dashboard → Upload Logs → Analysis → Admin Panel
+index.html (Home + Mood Selector)
+    ↓
+login.html ←→ register.html ←→ admin-register.html
+    ↓
+forgot-password.html → otp-verification.html → reset-password.html
+    ↓
+dashboard.html ←→ upload-log.html
+    ↓
+admin.html
 ```
 
 ---
 
-## 💾 Local Storage Design
+## 💾 Data Storage (LocalStorage)
 
-| Key                   | Purpose        |
-| --------------------- | -------------- |
-| lumen_mood_preference | Theme memory   |
-| registeredUsers       | User database  |
-| user                  | Active session |
-| premiumRequests       | Support system |
-| lastAnalysis          | Results        |
-
----
-
-## 🚀 Deployment (GitHub Pages)
-
-1. Go to repository **Settings**
-2. Open **Pages**
-3. Select branch → `main`
-4. Save
-
-Your app will be live at:
-
-```
-https://your-username.github.io/lumen-frontend/
-```
+| Key | Purpose |
+|-----|---------|
+| `lumen_mood_preference` | Saved mood theme |
+| `registeredUsers` | All user accounts |
+| `user` | Current logged-in user |
+| `premiumRequests` | Support requests |
+| `securityRules` | Detection rules |
+| `lastAnalysis` | Recent log analysis |
 
 ---
 
-## 📚 Academic Information
+## 📚 Course Information
 
-**University:** University of Frontier Technology, Bangladesh
-**Department:** Cyber Security Engineering
+| Course | Code |
+|--------|------|
+| Database Management System (Sessional) | CSE 202 |
+| Android & Web App Development (Sessional) | PROG 212 |
+| Threat Modeling & Security Monitoring (Sessional) | SEC 204 |
+
+**University:** University of Frontier Technology, Bangladesh  
+**Department:** Cyber Security Engineering  
 **Semester:** Level 2, Term 2
-
-### Courses
-
-* CSE 202 – DBMS (Sessional)
-* PROG 212 – App Development
-* SEC 204 – Security Monitoring
 
 ---
 
 ## 👩‍💻 Author
 
-**Sadia Tabassum**
-Frontend Developer | LUMEN Project
+**Sadia Tabassum**  
+ID: 2304008  
+Department of Cyber Security Engineering  
+University of Frontier Technology, Bangladesh
 
----
-
-## 👨‍🏫 Supervised By
-
-* Rakib Hossen
-* Md Masud Rana
-* Md Abdullah
+### Instructors
+- Rakib Hossen - Assistant Professor
+- Md Masud Rana - Lecturer
+- Md Abdullah - Lecturer
 
 ---
 
 ## 📄 License
 
-Academic Project — Not for commercial use.
+This project is for academic purposes only as part of Level 2, Term 2 coursework.
 
 ---
 
-## ⭐ Final Note
-
-If you found this project interesting, consider giving it a ⭐ on GitHub!
+**Made with ❤️ by Sadia Tabassum**  
+*Frontend Developer | LUMEN Project*
+```
 
 ---
 
+## Summary
+
+| Section | Content |
+|---------|---------|
+| **Focus** | Only frontend work |
+| **Author** | Sadia Tabassum (ID: 2304008) |
+| **Features** | Complete list of what you built |
+| **Setup** | Simple clone and open |
+| **Credentials** | Demo login info |
+| **Tech Stack** | HTML, CSS, JS, Chart.js, Tailwind |
+| **No Backend** | Pure frontend with localStorage |
+
+---
+
+**This README is perfect for your frontend-only GitHub repository!** 🚀
