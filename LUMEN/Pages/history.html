@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan History - LUMEN</title>
+    
+    <link rel="stylesheet" href="../css/mood-base.css">
+    <link rel="stylesheet" href="../css/mood-default.css" id="fallbackMoodCSS">
+    <link rel="stylesheet" href="history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='../index.html'">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">LUMEN</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="upload-log.html" class="nav-link">Upload Log</a>
+                <a href="history.html" class="nav-link active">History</a>
+            </div>
+            <div class="nav-actions">
+                <button id="changeMoodBtn" class="mood-changer-btn"><i class="fas fa-palette"></i> Theme</button>
+                <div class="user-menu">
+                    <span id="userNameDisplay" class="user-name"></span>
+                    <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="history-container">
+        <div class="history-header">
+            <h1 class="history-title">Scan History</h1>
+            <p class="history-subtitle">View all your previous log analyses</p>
+        </div>
+
+        <div id="historyList" class="history-list">
+            <!-- History items will be inserted here -->
+        </div>
+    </div>
+
+    <script src="../js/mood-storage.js"></script>
+    <script src="../js/mood-selector.js"></script>
+    <script src="history.js"></script>
+</body>
+</html>

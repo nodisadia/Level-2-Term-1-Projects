@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LUMEN</title>
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../css/mood-base.css">
+    
+    <!-- FALLBACK: Load default mood CSS immediately so page has color -->
+    <link rel="stylesheet" href="../css/mood-default.css" id="fallbackMoodCSS">
+    
+    <!-- Login Page Specific CSS -->
+    <link rel="stylesheet" href="login.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <a href="../index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <div class="login-logo">
+                <div class="logo-icon">🛡️</div>
+                <h1 class="logo-text">LUMEN</h1>
+            </div>
+            
+            <div class="login-header">
+                <h2 class="login-title">Welcome Back</h2>
+                <p class="login-subtitle">Sign in to your account to continue</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <!-- Role Selection - NEW -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-user-tag"></i> Login As
+                    </label>
+                    <div class="role-group">
+                        <label class="role-option">
+                            <input type="radio" name="loginRole" value="user" checked>
+                            <span class="role-option-content">
+                                <i class="fas fa-user"></i>
+                                <strong>User</strong>
+                                <small>Regular user access</small>
+                            </span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="loginRole" value="admin">
+                            <span class="role-option-content">
+                                <i class="fas fa-shield-alt"></i>
+                                <strong>Admin</strong>
+                                <small>Administrator access</small>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username" class="form-label">
+                        <i class="fas fa-user"></i> Username or Email
+                    </label>
+                    <input type="text" id="username" name="username" class="form-input" 
+                           placeholder="e.g., john_doe or john@example.com" required autocomplete="username">
+                </div>
+                
+                <!-- Password Field with Monkey Icon -->
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" class="form-input" 
+                               placeholder="Enter your password" required>
+                        <button type="button" id="togglePassword" class="password-toggle">
+                            <span class="monkey-icon">🙈</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" id="loginBtn" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+            </form>
+         <div class="signup-link">
+    <p>Don't have an account? <a href="register.html">Create Account</a></p>
+    <p>Admin? <a href="admin-register.html">Register as Admin</a></p>
+</div>
+        </div>
+    </div>
+    
+    <script src="../js/mood-storage.js"></script>
+    <script src="../js/mood-selector.js"></script>
+    <script src="login-auth.js"></script>
+</body>
+</html>

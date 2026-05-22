@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Log - LUMEN</title>
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../css/mood-base.css">
+    
+    <!-- Fallback Mood CSS -->
+    <link rel="stylesheet" href="../css/mood-default.css" id="fallbackMoodCSS">
+    
+    <!-- Upload Log Page Specific CSS -->
+    <link rel="stylesheet" href="upload-log.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='../index.html'">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">LUMEN</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="upload-log.html" class="nav-link active">Upload Log</a>
+                <a href="history.html" class="nav-link">History</a>
+            </div>
+            <div class="nav-actions">
+                <button id="changeMoodBtn" class="mood-changer-btn" title="Change Theme">
+                    <i class="fas fa-palette"></i> Theme
+                </button>
+                <div class="user-menu">
+                    <span id="userNameDisplay" class="user-name"></span>
+                    <button onclick="logout()" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="upload-container">
+        <div class="upload-header">
+            <h1 class="upload-title">Upload System Log</h1>
+            <p class="upload-subtitle">Upload Apache, Nginx, Syslog, or Windows Event Logs for instant security analysis</p>
+        </div>
+
+        <div class="upload-grid">
+            <!-- Left Column - Upload Area -->
+            <div class="upload-card">
+                <h3 class="card-title">
+                    <i class="fas fa-upload"></i> Upload Your Log File
+                </h3>
+                
+                <!-- Drop Zone -->
+                <div id="dropZone" class="drop-zone" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-cloud-upload-alt drop-icon"></i>
+                    <p class="drop-text">Drag & Drop your log file here</p>
+                    <p class="drop-hint">or click to browse</p>
+                    <input type="file" id="fileInput" accept=".log,.txt,.json,.csv" class="file-input" hidden>
+                    <div class="file-types">
+                        <span><i class="fas fa-check-circle"></i> .log</span>
+                        <span><i class="fas fa-check-circle"></i> .txt</span>
+                        <span><i class="fas fa-check-circle"></i> .json</span>
+                        <span><i class="fas fa-check-circle"></i> .csv</span>
+                    </div>
+                </div>
+
+                <!-- File Info (Hidden initially) -->
+                <div id="fileInfo" class="file-info hidden">
+                    <div class="file-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="file-details">
+                        <p id="fileName" class="file-name"></p>
+                        <p id="fileSize" class="file-size"></p>
+                    </div>
+                    <button onclick="clearFile()" class="remove-file">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Analyze Button -->
+                <button id="analyzeBtn" class="analyze-btn" disabled onclick="analyzeLog()">
+                    <i class="fas fa-chart-line"></i> Analyze Log
+                </button>
+
+                <!-- Demo Button -->
+                <div class="demo-section">
+                    <button onclick="useSampleLog()" class="demo-btn">
+                        <i class="fas fa-flask"></i> Try Demo Log
+                    </button>
+                    <p class="demo-hint">No log file? Click "Try Demo Log" to test with sample data</p>
+                </div>
+            </div>
+
+            <!-- Right Column - Guidelines -->
+            <div class="guidelines-card">
+                <h3 class="card-title">
+                    <i class="fas fa-book-open"></i> How to Upload Logs from Your Laptop
+                </h3>
+                
+                <div class="guideline-steps">
+                    <!-- Step 1 -->
+                    <div class="guideline-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Locate Your Log File</h4>
+                            <p class="step-desc">Log files are usually stored in these locations:</p>
+                            <div class="code-block">
+                                <code>📁 Windows: C:\Windows\System32\winevt\Logs\</code>
+                                <code>📁 Linux: /var/log/</code>
+                                <code>📁 Apache: /var/log/apache2/access.log</code>
+                                <code>📁 Nginx: /var/log/nginx/access.log</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="guideline-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Choose Upload Method</h4>
+                            <div class="method-buttons">
+                                <div class="method" onclick="triggerFileInput()">
+                                    <i class="fas fa-folder-open"></i>
+                                    <span>Browse Files</span>
+                                    <small>Click to select from your computer</small>
+                                </div>
+                                <div class="method" id="dragMethod">
+                                    <i class="fas fa-arrows-alt"></i>
+                                    <span>Drag & Drop</span>
+                                    <small>Drag file into the upload area</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="guideline-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Supported File Formats</h4>
+                            <div class="format-list">
+                                <span class="format-badge">.log</span>
+                                <span class="format-badge">.txt</span>
+                                <span class="format-badge">.json</span>
+                                <span class="format-badge">.csv</span>
+                            </div>
+                            <p class="step-desc">Maximum file size: 10MB</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="guideline-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Click "Analyze Log"</h4>
+                            <p class="step-desc">After uploading, click the analyze button to get your security report</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Tips -->
+                <div class="tips-section">
+                    <h4 class="tips-title">
+                        <i class="fas fa-lightbulb"></i> Quick Tips
+                    </h4>
+                    <ul class="tips-list">
+                        <li><i class="fas fa-check-circle"></i> Make sure your log file is in plain text format</li>
+                        <li><i class="fas fa-check-circle"></i> For best results, use Apache or Nginx access logs</li>
+                        <li><i class="fas fa-check-circle"></i> You can export Windows Event Logs as .txt files</li>
+                        <li><i class="fas fa-check-circle"></i> Try the Demo button to see how it works</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Log Preview Section -->
+        <div class="sample-preview-card">
+            <div class="sample-header">
+                <h3 class="sample-title">
+                    <i class="fas fa-code"></i> Sample Log Format
+                </h3>
+                <button onclick="copySampleLog()" class="copy-sample-btn">
+                    <i class="fas fa-copy"></i> Copy Sample
+                </button>
+            </div>
+            <pre id="sampleLogContent" class="sample-code">
+192.168.1.100 - - [22/May/2026:10:15:23 +0000] "POST /login HTTP/1.1" 401 1234
+192.168.1.101 - - [22/May/2026:10:15:24 +0000] "POST /login HTTP/1.1" 401 1234
+192.168.1.102 - - [22/May/2026:10:15:25 +0000] "POST /login HTTP/1.1" 401 1234
+192.168.1.103 - - [22/May/2026:10:15:26 +0000] "POST /login HTTP/1.1" 200 5678
+192.168.1.104 - - [22/May/2026:10:15:27 +0000] "GET /admin/config HTTP/1.1" 403 234
+192.168.1.105 - - [22/May/2026:10:15:28 +0000] "GET /../../etc/passwd HTTP/1.1" 404 345
+192.168.1.106 - - [22/May/2026:10:15:29 +0000] "POST /login HTTP/1.1" 401 1234
+192.168.1.107 - - [22/May/2026:10:15:30 +0000] "POST /login HTTP/1.1" 401 1234</pre>
+        </div>
+    </div>
+
+    <script src="../js/mood-storage.js"></script>
+    <script src="../js/mood-selector.js"></script>
+    <script src="upload-log.js"></script>
+</body>
+</html>
