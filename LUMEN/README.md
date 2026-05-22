@@ -20,7 +20,7 @@
 This repository contains the **complete frontend** of LUMEN - a web-based cybersecurity analysis platform that helps users upload system logs and automatically detect potential security risks.
 
 **Built by:** Sadia Tabassum (ID: 2304008)  
-**Course:** Level 2, Term 2 | Dept. of Cyber Security Engineering, UFTB
+**Course:** Level 2, Term 1 | Dept. of Cyber Security Engineering, UFTB
 
 ---
 
