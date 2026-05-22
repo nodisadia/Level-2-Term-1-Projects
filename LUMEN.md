@@ -1,4 +1,3 @@
-Here’s a cleaner, more polished, and professional version of your **README.md**. I kept your structure but improved wording, clarity, and flow so it looks strong on GitHub:
 
 ---
 
@@ -202,7 +201,3 @@ This project is developed strictly for **academic purposes** as part of coursewo
 
 ---
 
-If you want, I can also:
-
-* Make it **more professional (industry-level GitHub style)**
-* Or add **screenshots + badges + live demo section** 🚀
