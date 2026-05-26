@@ -218,7 +218,7 @@ admin.html (Admin only)
 
 **University:** University of Frontier Technology, Bangladesh  
 **Department:** Cyber Security Engineering  
-**Semester:** Level 2, Term 2
+**Semester:** Level 2, Term 1
 
 ---
 
